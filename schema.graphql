@@ -5,13 +5,26 @@ type Query {
 type Mutation {
   addMessage(input: MessageInput!): Message
 }
+# Subscription is another operation type just like query and mutation.
+type Subscription {
+  messageAdded: Message
+}
 
 type Message {
   id: ID!
-  from: String 
+  from: String
   text: String
 }
 
 input MessageInput {
   text: String
 }
+
+# Example subscription query
+# subscription {
+#   messageAdded {
+#     id
+#     from
+#     text
+#   }
+# }
